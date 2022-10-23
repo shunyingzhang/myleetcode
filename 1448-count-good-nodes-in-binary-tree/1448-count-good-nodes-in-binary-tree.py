@@ -9,17 +9,18 @@ class Solution:
         if not root:
             return 0
         
-        def findGoodN(p, value, GN):
+        GN = 0
+        
+        def findGoodN(p, value):
+            nonlocal GN
             if p.val >= value:
                 value = p.val
                 GN += 1
             if p.left:
-                GN = findGoodN(p.left, value, GN)[1]
+                findGoodN(p.left, value)
             if p.right:
-                GN = findGoodN(p.right, value, GN)[1]
-            return [value, GN]
-        
-        GN = 0
+                findGoodN(p.right, value)
+            return GN        
         
         res_val = root.val
         
@@ -27,9 +28,9 @@ class Solution:
         right = 0
         
         if root.left:
-            left = findGoodN(root.left, res_val, GN)[1]
+            GN = findGoodN(root.left, res_val)
         if root.right:
-            right = findGoodN(root.right, res_val, GN)[1]
+            GN = findGoodN(root.right, res_val)
             
         
-        return 1 + left + right
+        return 1 + GN
