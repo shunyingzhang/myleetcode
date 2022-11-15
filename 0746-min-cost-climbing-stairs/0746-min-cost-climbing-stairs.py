@@ -6,7 +6,7 @@ class Solution:
         
         for i in range(n - 1):
             tmp = two
-            two = cost[n - 1 - (i + 1)] + min(two, one)
+            two = cost[n - 2 - i] + min(two, one)
             one = tmp
         
         return min(one, two)
