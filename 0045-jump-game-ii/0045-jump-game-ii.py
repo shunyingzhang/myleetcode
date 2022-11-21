@@ -1,22 +1,16 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return 0
+        step = 0
+        l = 0
+        r = 0
         
-        target = len(nums) - 1
-        q = set()
-        q.add(0)
-        steps = 0
+        while r < len(nums) - 1:
+            fastJump = 0
+            for i in range(l, r + 1):
+                fastJump = max(fastJump, i + nums[i])
+            l = r + 1
+            r = fastJump
+            step += 1
         
-        while q:
-            steps += 1
-            for j in range(len(q)):
-                p = q.pop()
-                for k in range(nums[p], -1, -1):
-                    if k == 0:
-                        continue
-                    if p + k == target:
-                        return steps
-                    if p + k < target:
-                        q.add(p + k)
+        return step
         
