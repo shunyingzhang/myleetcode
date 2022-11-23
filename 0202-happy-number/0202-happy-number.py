@@ -11,8 +11,10 @@ class Solution:
         while n not in loop:
             loop.add(n)
             n = sumSquare(n)
+            if n == 1:
+                return True
         
-        return n == 1
+        return False
         
         
         
