@@ -3,9 +3,9 @@ class Solution:
         def helper(i):
             if i == 0:
                 return 0
-            a = i % 2
+            count = i % 2
             i = i // 2
-            res = helper(i) + a
+            res = helper(i) + count
             return res
         
         ans = []
