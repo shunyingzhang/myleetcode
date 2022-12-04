@@ -14,6 +14,6 @@ class Solution:
                 return False
             hashmap[n] -= 1
         
-        return hashmap
+        return True
             
         
