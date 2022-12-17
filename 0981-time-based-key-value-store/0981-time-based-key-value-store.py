@@ -12,18 +12,33 @@ class TimeMap:
         
 
     def get(self, key: str, timestamp: int) -> str:
-        res = ""
+        res = ''
         value = self.hashmap.get(key, [])
         l = 0
         r = len(value) - 1
         while l <= r:
             m = (l + r) // 2
-            if value[m][1] <= timestamp:
+            if timestamp < value[m][1]:
+                r = m - 1
+            elif timestamp > value[m][1]:
                 res = value[m][0]
                 l = m + 1
             else:
-                r = m - 1
+                return value[m][0]
         return res
+        
+        # res = ""
+        # value = self.hashmap.get(key, [])
+        # l = 0
+        # r = len(value) - 1
+        # while l <= r:
+        #     m = (l + r) // 2
+        #     if value[m][1] <= timestamp:
+        #         res = value[m][0]
+        #         l = m + 1
+        #     else:
+        #         r = m - 1
+        # return res
         
 
 
