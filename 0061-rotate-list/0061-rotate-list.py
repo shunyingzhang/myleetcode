@@ -18,33 +18,33 @@ class Solution:
         if k == 0:
             return head
         
-        # cur = head
-        # for i in range(length - k - 1):
-        #     cur = cur.next
-        # newhead = cur.next
-        # cur.next = None
-        # tail.next = head
-        # return newhead
+        cur = head
+        for i in range(length - k - 1):
+            cur = cur.next
+        newhead = cur.next
+        cur.next = None
+        tail.next = head
+        return newhead
         
         
         
         
-        pt1 = head
-        pt2 = head
-        while k > 0:
-            pt1 = pt1.next
-            k -= 1
+#         pt1 = head
+#         pt2 = head
+#         while k > 0:
+#             pt1 = pt1.next
+#             k -= 1
         
         
-        while pt1.next:
-            pt2 = pt2.next
-            pt1 = pt1.next
+#         while pt1.next:
+#             pt2 = pt2.next
+#             pt1 = pt1.next
         
-        res = pt2.next
-        pt2.next = None
-        pt1.next = head
+#         res = pt2.next
+#         pt2.next = None
+#         pt1.next = head
         
-        return res
+#         return res
         
         
             
