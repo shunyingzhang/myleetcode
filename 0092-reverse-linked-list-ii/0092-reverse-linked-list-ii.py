@@ -7,28 +7,29 @@ class Solution:
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
         if left - right == 0:
             return head
-        l = head
-        r = head
-        for i in range(left - 2):
+        dummy = ListNode(0, head)
+        l = dummy
+        r = dummy
+        for i in range(left - 1):
             l = l.next
-        for i in range(right - 1):
+        for i in range(right):
             r = r.next
         
         prev = r.next
         cur = l.next
-        if left == 1:
-            cur = head
+        # if left == 1:
+        #     cur = head
         for i in range(right - left + 1):
             tmp = cur.next
             cur.next = prev
             prev = cur
             cur = tmp
             
-        if left == 1:
-            return prev
+        # if left == 1:
+        #     return prev
         
         l.next = prev
-        return head
+        return dummy.next
         
             
         
