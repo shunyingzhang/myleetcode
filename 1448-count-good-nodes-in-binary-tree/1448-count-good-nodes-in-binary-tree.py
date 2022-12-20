@@ -8,10 +8,8 @@ class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         if not root:
             return 0
-        gn = 0
         
         def findG(node, ref):
-            nonlocal gn
             if not node:
                 return 0
             gn = findG(node.left, max(ref, node.val))
