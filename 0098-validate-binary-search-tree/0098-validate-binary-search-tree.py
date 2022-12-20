@@ -9,14 +9,28 @@ class Solution:
         if not root:
             return True
         
-        def CheckNode(node, left, right):
+        def checkN(node, left, right):
             if not node:
                 return True
-            
+        
             if not (node.val > left and node.val < right):
                 return False
-            return (CheckNode(node.left, left, node.val) and CheckNode(node.right, node.val, right))
+            return checkN(node.left, left, node.val) and checkN(node.right, node.val, right)
         
-        return CheckNode(root, float("-inf"), float("inf"))
+        return checkN(root, float("-inf"), float("inf"))
+        
+#         if not root:
+#             return True
+        
+#         def CheckNode(node, left, right):
+#             if not node:
+#                 return True
+            
+#             if not (node.val > left and node.val < right):
+#                 return False
+            
+#             return (CheckNode(node.left, left, node.val) and CheckNode(node.right, node.val, right))
+        
+#         return CheckNode(root, float("-inf"), float("inf"))
             
         
