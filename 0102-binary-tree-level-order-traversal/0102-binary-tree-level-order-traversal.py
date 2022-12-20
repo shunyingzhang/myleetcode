@@ -9,18 +9,37 @@ class Solution:
         res = []
         if not root:
             return res
-        
         q = deque([root])
+        
         while q:
-            value = []
-            for j in range(len(q)):
+            trav = []
+            for i in range(len(q)):
                 node = q.popleft()
-                value.append(node.val)
+                trav.append(node.val)
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            res.append(value)
+            res.append(trav)
         return res
+        
+        
+        
+#         res = []
+#         if not root:
+#             return res
+        
+#         q = deque([root])
+#         while q:
+#             value = []
+#             for j in range(len(q)):
+#                 node = q.popleft()
+#                 value.append(node.val)
+#                 if node.left:
+#                     q.append(node.left)
+#                 if node.right:
+#                     q.append(node.right)
+#             res.append(value)
+#         return res
        
         
