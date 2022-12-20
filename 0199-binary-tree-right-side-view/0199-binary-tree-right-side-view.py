@@ -11,6 +11,7 @@ class Solution:
             return res
         
         q = deque([root])
+        
         while q:
             for i in range(len(q)):
                 node = q.popleft()
@@ -20,3 +21,19 @@ class Solution:
                     q.append(node.right)
             res.append(node.val)
         return res
+        
+        
+#         res = []
+#         if not root:
+#             return res
+        
+#         q = deque([root])
+#         while q:
+#             for i in range(len(q)):
+#                 node = q.popleft()
+#                 if node.left:
+#                     q.append(node.left)
+#                 if node.right:
+#                     q.append(node.right)
+#             res.append(node.val)
+#         return res
