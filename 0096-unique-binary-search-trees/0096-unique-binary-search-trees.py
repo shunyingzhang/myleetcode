@@ -21,6 +21,5 @@ class Solution:
     
                 res += left * right             
             return res
-        res = numT(n)
-        return res
+        return numT(n)
         
