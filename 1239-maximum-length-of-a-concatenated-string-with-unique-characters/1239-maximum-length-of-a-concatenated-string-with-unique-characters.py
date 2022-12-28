@@ -1,6 +1,5 @@
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
-        maxlen = 0
         
         def ifunique(s1, s2):
             count = Counter(s1) + Counter(s2)
@@ -12,16 +11,16 @@ class Solution:
             
             
         def dfs(i, cur):
-            nonlocal maxlen
+            # nonlocal maxlen
             if i == len(arr):
-                maxlen = max(maxlen, len(cur))
-                return
-            
+                # maxlen = max(maxlen, len(cur))
+                return len(cur)
+            len1 = 0
             if ifunique(cur, arr[i]):
-                dfs(i + 1, cur + arr[i])
+                len1 = dfs(i + 1, cur + arr[i])
             
-            dfs(i + 1, cur)
+            len2 = dfs(i + 1, cur)
+            return max(len1, len2)
         
-        dfs(0, '')
-        return maxlen
+        return dfs(0, '')
         
