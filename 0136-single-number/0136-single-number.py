@@ -5,3 +5,16 @@ class Solution:
             res = n ^ res
         
         return res
+        
+        
+        
+        
+        
+        
+        
+        
+#         res = 0
+#         for n in nums:
+#             res = n ^ res
+        
+#         return res
