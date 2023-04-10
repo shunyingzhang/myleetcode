@@ -23,6 +23,7 @@ class MyHashMap:
         for i, pair in enumerate(self.hmap):
             if pair[0] ==  key:
                 self.hmap.pop(i)
+                return
         
 
 
