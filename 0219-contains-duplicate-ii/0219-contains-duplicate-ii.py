@@ -4,15 +4,15 @@ class Solution:
         
         l = 0
         
-        for r, n in enumerate(nums):
+        for r in range(len(nums)):
             if r - l > k:
                 window.remove(nums[l])
                 l += 1
             
-            if n in window:
+            if nums[r] in window:
                 return True
             
-            window.add(n)
+            window.add(nums[r])
         
         return False
         
